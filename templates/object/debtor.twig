@@ -1,0 +1,10 @@
+<Nm>{{ debtor.name }}</Nm>
+{% if debtor.country is not null or debtor.street is not null or debtor.city is not null %}
+	<PstlAdr>
+		{% if debtor.country is defined %}
+			<Ctry>{{ debtor.country }}</Ctry>
+		{% endif %}
+		<AdrLine>{{ debtor.street }} {{ debtor.housenumber }}</AdrLine>
+		<AdrLine>{{ debtor.zipcode }} {{ debtor.city }}</AdrLine>
+	</PstlAdr>
+{% endif %}

@@ -16,7 +16,7 @@ class Organization {
 	 * @var string $name
 	 * @access public
 	 */
-	$name = null;
+	public $name = null;
 
 	/**
 	 * Identification
@@ -24,7 +24,7 @@ class Organization {
 	 * @var array $identification
 	 * @access public
 	 */
-	$identification = [];
+	public $identification = [];
 
 	/**
 	 * Set identification
@@ -52,7 +52,6 @@ class Organization {
 	public function render() {
 		$template = Template::get();
 		$template->assign('organization', $this);
-		echo 'aze';
 		return $template->render('object/organization.twig');
 	}
 

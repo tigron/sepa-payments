@@ -1,0 +1,40 @@
+<CdtTrfTxInf>
+	<PmtId>
+		<EndToEndId>{{ transaction.paymentIdentification }}</EndToEndId>
+	</PmtId>
+	<Amt>
+		<InstdAmt Ccy="EUR">{{ transaction.amount }}</InstdAmt>
+	</Amt>
+	{% if transaction.creditorAgent is not null %}
+		<CdtrAgt>
+			<FinInstnId>
+				<BIC>{{ transaction.creditorAgent }}</BIC>
+			</FinInstnId>
+		</CdtrAgt>
+	{% endif %}
+	<Cdtr>
+		{{ transaction.creditor.render()|raw }}
+	</Cdtr>
+	<CdtrAcct>
+		<Id>
+			<IBAN>{{ transaction.creditorAccount }}</IBAN>
+		</Id>
+	</CdtrAcct>
+	<RmtInf>
+		{% if transaction.structured_message is not null %}
+			<Strd>
+				<CdtrRefInf>
+					<Tp>
+						<CdOrPrtry>
+							<Cd>SCOR</Cd>
+						</CdOrPrtry>
+							<Issr>BBA</Issr>
+					</Tp>
+					<Ref>{{ transaction.structured_message }}</Ref>
+				</CdtrRefInf>
+			</Strd>
+		{% else %}
+			<Ustrd>{{ transaction.unstructured_message }}</Ustrd>
+		{% endif %}
+	</RmtInf>
+</CdtTrfTxInf>

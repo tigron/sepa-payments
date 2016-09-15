@@ -3,7 +3,8 @@
     "description": "A package to create SEPA 001.001.03 payment files",
     "type": "library",
     "require": {
-		
+		"tigron/skeleton-template": "*",
+		"tigron/skeleton-template-twig": "*"
     },
     "license": "MIT",
     "authors": [

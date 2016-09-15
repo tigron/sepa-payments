@@ -1,15 +1,15 @@
 <Nm>{{ organization.name }}</Nm>
 {% if organization.identification|length > 0 %}
 <Id>
-  <OrgId>
-  	{% if organization.identification.bicorbei is defined %}
-  		<BICOrBEI>{{ organization.identification.bicorbei }}</BICOrBEI>
-  	{% else %}
-  		<Othr>
-  			<Id>{{ organization.identification.kbo-bce }}</Id>
-  			<Issr>KBO-BCE</Issr>
-  		</Othr>
-  	{% endif %}
-  </OrgId>
+	<OrgId>
+	{% if organization.identification.bicorbei is not null %}
+		<BICOrBEI>{{ organization.identification.bicorbei }}</BICOrBEI>
+	{% else %}
+		<Othr>
+			<Id>{{ organization.identification['kbo-bce'] }}</Id>
+			<Issr>KBO-BCE</Issr>
+		</Othr>
+	{% endif %}
+	</OrgId>
 </Id>
 {% endif %}

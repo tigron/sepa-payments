@@ -1,0 +1,31 @@
+<PmtInf>
+	<PmtInfId>{{ payment.paymentInformationIdentification }}</PmtInfId>
+	<PmtMtd>TRF</PmtMtd>
+	<BtchBookg>false</BtchBookg>
+	<PmtTpInf>
+		<SvcLvl>
+			<Cd>SEPA</Cd>
+		</SvcLvl>
+	</PmtTpInf>
+	<ReqdExctnDt>{{ payment.requestedExecutionDate.format('Y-m-d') }}</ReqdExctnDt>
+	<Dbtr>
+		{{ payment.debtor.render()|raw }}
+	</Dbtr>
+	<DbtrAcct>
+		<Id>
+			<IBAN>{{ payment.debtorAccount }}</IBAN>
+		</Id>
+	</DbtrAcct>
+	{% if payment.debtorAgent is not null %}
+	<DbtrAgt>
+		<FinInstnId>
+			<BIC>{{ payment.debtorAgent }}</BIC>
+		</FinInstnId>
+	</DbtrAgt>
+	{% endif %}
+	<ChrgBr>SLEV</ChrgBr>
+
+	{% for transction in payment.transactions %}
+		{{ transction.render()|raw }}
+	{% endfor %}
+</PmtInf>

@@ -26,9 +26,11 @@ class Template extends \Skeleton\Template\Template {
 	 * @return Template $template
 	 */
 	public static function get() {
+		\Skeleton\Template\Twig\Config::$autoescape = false;
+
 		if (!isset(self::$template)) {
 			$template = new self();
-			$template->set_template_directory(dirname(__FILE__) . '/../../templates');
+			$template->set_template_directory(dirname(__FILE__) . '/../../../templates');
 			self::$template = $template;
 		}
 		return self::$template;

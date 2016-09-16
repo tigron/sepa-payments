@@ -1,5 +1,21 @@
 # sepa-payments
-Sepa payment file creation
+
+## Overview
+
+This library will create a SEPA pain.001.001.03 Credit Transfer XML file. The
+XML file is validated with the ING Format Validation Tool:
+url: https://ing-fvt.liaison.com/welcome.do
+login: ING10
+password: Format10
+
+## todo
+
+- Validation for input
+- Better reporting
+- XML formatting (tidy?)
+- Validation agains XSD
+
+## Example
 
 	$organization = new \Tigron\Sepa\Organization();
 	$organization->name = 'Tigron';

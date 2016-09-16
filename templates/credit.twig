@@ -4,8 +4,8 @@
 
 		<GrpHdr>
 			<MsgId>{{ credit_file.messageIdentification }}</MsgId>
-			<CreDtTm>2016-09-13T20:43:59</CreDtTm>
-			<NbOfTxs>1</NbOfTxs>
+			<CreDtTm>{{ "now"|date('c') }}</CreDtTm>
+			<NbOfTxs>{{ credit_file.payments|length }}</NbOfTxs>
 			<InitgPty>
 				{{ credit_file.initiatingParty.render()|raw }}
 			</InitgPty>

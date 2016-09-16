@@ -5,7 +5,7 @@
 	<Amt>
 		<InstdAmt Ccy="EUR">{{ transaction.amount }}</InstdAmt>
 	</Amt>
-	{% if transaction.creditorAgent is not null %}
+	{% if transaction.creditorAgent is not empty %}
 		<CdtrAgt>
 			<FinInstnId>
 				<BIC>{{ transaction.creditorAgent }}</BIC>
@@ -21,7 +21,7 @@
 		</Id>
 	</CdtrAcct>
 	<RmtInf>
-		{% if transaction.structured_message is not null %}
+		{% if transaction.structured_message is not empty %}
 			<Strd>
 				<CdtrRefInf>
 					<Tp>

@@ -16,7 +16,7 @@
 			<IBAN>{{ payment.debtorAccount }}</IBAN>
 		</Id>
 	</DbtrAcct>
-	{% if payment.debtorAgent is not null %}
+	{% if payment.debtorAgent is not empty %}
 	<DbtrAgt>
 		<FinInstnId>
 			<BIC>{{ payment.debtorAgent }}</BIC>

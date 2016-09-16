@@ -1,15 +1,18 @@
 # sepa-payments
 Sepa payment file creation
 
-
 	$organization = new \Tigron\Sepa\Organization();
 	$organization->name = 'Tigron';
+	/**
+	 * Set the identification
+	 *
+	 * Possible types: bic, bei or kbo-bce
+	 */
 	$organization->set_identification('kbo-bce', '0888764123');
 
 	$credit = new \Tigron\Sepa\File\Credit();
 	$credit->messageIdentification = 1;
 	$credit->initiatingParty = $organization;
-
 
 	$debtor = new \Tigron\Sepa\Debtor();
 	$debtor->name = 'Tigron';
@@ -28,7 +31,6 @@ Sepa payment file creation
 	$payment->debtorAgent = 'BICAZE';
 	$payment->debtor = $debtor;
 
-
 	$creditor = new \Tigron\Sepa\Creditor();
 	$creditor->name = 'My Supplier';
 	$creditor->country = 'BE';
@@ -46,6 +48,7 @@ Sepa payment file creation
 	$transaction->creditorAccount = 'BE12123412341234';
 	$transaction->creditor = $creditor;
 	$transaction->structured_message = '123123412345';
+
 	$payment->transactions[] = $transaction;
 
 	$transaction = new \Tigron\Sepa\Transaction();
@@ -55,6 +58,7 @@ Sepa payment file creation
 	$transaction->creditorAccount = 'BE12123412341234';
 	$transaction->creditor = $creditor;
 	$transaction->unstructured_message = 'Invoice 123';
+
 	$payment->transactions[] = $transaction;
 
 	$credit->payments = [ $payment ];

@@ -2,7 +2,7 @@
 {% if organization.identification|length > 0 %}
 <Id>
 	<OrgId>
-	{% if organization.identification.bicorbei is not null %}
+	{% if organization.identification.bicorbei is not empty %}
 		<BICOrBEI>{{ organization.identification.bicorbei }}</BICOrBEI>
 	{% else %}
 		<Othr>

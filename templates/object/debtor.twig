@@ -1,4 +1,4 @@
-<Nm>{{ debtor.name }}</Nm>
+<Nm>{{ debtor.name|escape }}</Nm>
 {% if debtor.country is not empty or debtor.street is not empty or debtor.city is not empty %}
 	<PstlAdr>
 		{% if debtor.country is defined %}

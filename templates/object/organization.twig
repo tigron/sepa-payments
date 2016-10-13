@@ -1,4 +1,4 @@
-<Nm>{{ organization.name }}</Nm>
+<Nm>{{ organization.name|escape }}</Nm>
 {% if organization.identification|length > 0 %}
 <Id>
 	<OrgId>

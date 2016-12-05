@@ -30,7 +30,7 @@
 						</CdOrPrtry>
 							<Issr>BBA</Issr>
 					</Tp>
-					<Ref>{{ transaction.structured_message }}</Ref>
+					<Ref>{{ transaction.structured_message|replace({'/', ''}) }}</Ref>
 				</CdtrRefInf>
 			</Strd>
 		{% else %}

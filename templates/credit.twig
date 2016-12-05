@@ -5,7 +5,7 @@
 		<GrpHdr>
 			<MsgId>{{ credit_file.messageIdentification }}</MsgId>
 			<CreDtTm>{{ "now"|date('c') }}</CreDtTm>
-			<NbOfTxs>{{ credit_file.payments|length }}</NbOfTxs>
+			<NbOfTxs>{{ credit_file.count_transactions() }}</NbOfTxs>
 			<InitgPty>
 				{{ credit_file.initiatingParty.render()|raw }}
 			</InitgPty>

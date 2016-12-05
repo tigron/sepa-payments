@@ -45,8 +45,16 @@ class Credit {
 		return $template->render('credit.twig');
 	}
 
-
-
-
-
+	/**
+	 * Count transactions
+	 *
+	 * @access public
+	 */
+	public function count_transactions() {
+		$count = 0;
+		foreach ($this->payments as $payment) {
+			$count += count($payment->transactions);
+		}
+		return $count;
+	}
 }
